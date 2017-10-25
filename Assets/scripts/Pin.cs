@@ -43,8 +43,6 @@ public class Pin : MonoBehaviour {
         }
         else if (collision.tag == "Pin")
         {
-            Debug.Log("You've lost");
-
             if (OnPintHitPin != null)
             {
                 OnPintHitPin();
