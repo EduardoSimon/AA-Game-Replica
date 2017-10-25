@@ -10,7 +10,8 @@ public class UpdateRotatorUI : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
         text = GetComponent<Text>();
-	}
+        text.text = GameManager.Instance.PinCount.ToString();
+    }
 
     private void OnEnable()
     {
