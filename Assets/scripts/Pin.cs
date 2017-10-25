@@ -6,7 +6,9 @@ public class Pin : MonoBehaviour {
 
     public float speed = 20f;
 
-    public static event System.Action OnPinHit;
+    public static event System.Action OnPinHitRotator;
+    public static event System.Action OnPintHitPin;
+
 
     private bool pinned = false;
     private Rigidbody2D rb;
@@ -25,7 +27,7 @@ public class Pin : MonoBehaviour {
             rb.MovePosition(posToMov);
         }
 
-	}
+    }
 
     public void OnTriggerEnter2D(Collider2D collision)
     {
@@ -34,12 +36,22 @@ public class Pin : MonoBehaviour {
             transform.SetParent(collision.transform);
             pinned = true;
 
-			GameManager.Instance.PinCount++;
-
-            if (OnPinHit != null)
+            if (OnPinHitRotator != null)
             {
-                OnPinHit();
+                OnPinHitRotator();
+            }
+        }
+        else if (collision.tag == "Pin")
+        {
+            Debug.Log("You've lost");
+
+            if (OnPintHitPin != null)
+            {
+                OnPintHitPin();
             }
         }
     }
+
+    
+
 }
