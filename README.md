@@ -1,1 +1,2 @@
-# AA-game
+# AA GAME REPLICA
+Tested on IOS 11 on IPHONE 5S
